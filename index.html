@@ -1,1 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pooja Foods Kitchen</title>
+  <style>
+    :root {
+      --bg: #fffaf5;
+      --bg-soft: #ffe8d6;
+      --accent: #d96b2c;
+      --accent-dark: #a94817;
+      --text: #2f241f;
+      --muted: #6d5045;
+      --card: rgba(255,255,255,0.72);
+      --border: rgba(217,107,44,0.18);
+      --shadow: 0 24px 60px rgba(140,74,25,0.16);
+    }
 
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(255,224,204,0.95), transparent 22%),
+        linear-gradient(180deg, #fffdfb, #fff8f2 28%, #fffaf5 100%);
+    }
+
+    .page-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #ffad66, var(--accent));
+      color: white;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .brand p {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 0.74rem;
+    }
+
+    .topbar nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .topbar a {
+      text-decoration: none;
+      color: var(--text);
+      background: rgba(255,255,255,0.5);
+      border: 1px solid rgba(137,79,51,0.12);
+      border-radius: 999px;
+      padding: 10px 12px;
+      font-size: 0.78rem;
+      backdrop-filter: blur(5px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .hero-copy, .hero-card {
+      border-radius: 30px;
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(255,170,130,0.28);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-copy {
+      padding: 30px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 12px;
+      border-radius: 999px;
+      background: rgba(255,158,96,0.18);
+      color: var(--accent-dark);
+      padding: 6px 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      line-height: 0.96;
+    }
+
+    .hero-copy p {
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 62ch;
+      margin: 16px 0 0;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .mini-chip {
+      border-radius: 999px;
+      padding: 10px 12px;
+      font-size: 0.72rem;
+      background: white;
+      border: 1px solid rgba(217,107,44,0.14);
+      color: var(--muted);
+    }
+
+    .hero-card {
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-image {
+      border-radius: 26px;
+      min-height: 260px;
+      background:
+        linear-gradient(rgba(110,49,19,0.2), rgba(61,29,15,0.38)),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560"><rect width="800" height="560" rx="30" fill="%23f1c1a0"/><circle cx="190" cy="176" r="56" fill="%23fff2e6"/><rect x="112" y="246" width="560" height="260" rx="24" fill="%23d4783f"/><rect x="142" y="282" width="220" height="150" rx="20" fill="%23fff7f1"/><rect x="388" y="282" width="220" height="150" rx="20" fill="%23ffe4cf"/><rect x="132" y="144" width="120" height="18" rx="9" fill="%23f4b58a"/><rect x="272" y="148" width="56" height="12" rx="6" fill="%23ffc7a7"/><rect x="154" y="100" width="88" height="12" rx="6" fill="%23fff0e6"/></svg>') center/cover;
+      position: relative;
+    }
+
+    .hero-image::after {
+      content: "Chef special of the day";
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      background: rgba(63,33,20,0.72);
+      color: white;
+      font-size: 0.72rem;
+      padding: 8px 10px;
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+    }
+
+    .special-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .special-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      border-radius: 18px;
+      background: white;
+      border: 1px solid rgba(217,107,44,0.12);
+      padding: 12px 13px;
+    }
+
+    .special-item strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 0.88rem;
+    }
+
+    .special-item span {
+      color: var(--muted);
+      font-size: 0.72rem;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 12px;
+      margin: 6px 0 12px;
+    }
+
+    .section-heading h3 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .section-heading p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .menu-card {
+      border-radius: 24px;
+      padding: 16px;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid rgba(217,107,44,0.12);
+      box-shadow: 0 20px 40px rgba(172,102,43,0.12);
+      backdrop-filter: blur(5px);
+    }
+
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .menu-header h4 {
+      margin: 0;
+      font-size: 1.02rem;
+    }
+
+    .price {
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ffb378, #ef7f39);
+      color: white;
+      padding: 6px 8px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .menu-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 0.84rem;
+    }
+
+    .menu-tags {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      border-radius: 999px;
+      padding: 5px 8px;
+      font-size: 0.62rem;
+      background: #fff3eb;
+      color: #b65d29;
+      font-weight: 800;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .about-panel {
+      border-radius: 24px;
+      padding: 18px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(217,107,44,0.12);
+      box-shadow: 0 20px 40px rgba(172,102,43,0.1);
+    }
+
+    .about-panel ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .footnote {
+      margin-top: 18px;
+      border-radius: 20px;
+      padding: 16px 18px;
+      background: linear-gradient(90deg, rgba(255,185,134,0.88), rgba(240,115,53,0.88));
+      color: #fff8f2;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .about-grid, .menu-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-badge">🍲</div>
+        <div>
+          <h1>Pooja Foods Kitchen</h1>
+          <p>Homestyle meals · Fresh daily</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Visit</a>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">✨ Flavors from the heart of home</div>
+        <h2>Comfort food cooked with love.</h2>
+        <p>
+          Pooja Foods Kitchen serves wholesome, spicy, and satisfying dishes made with fresh ingredients,
+          perfect for lunch breaks, family dinners, or quick takeaways.
+        </p>
+        <div class="hero-stats">
+          <div class="mini-chip">Open daily 11 AM – 9 PM</div>
+          <div class="mini-chip">Home-style recipes</div>
+          <div class="mini-chip">Takeaway & dine-in</div>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="hero-image"></div>
+        <div class="special-list">
+          <div class="special-item">
+            <div>
+              <strong>Signature Thali</strong>
+              <span>Rice, curry, sabzi, pickle & sweet</span>
+            </div>
+            <span class="price">₹249</span>
+          </div>
+          <div class="special-item">
+            <div>
+              <strong>Masala Dosa Plate</strong>
+              <span>Crispy dosa with chutney and sambar</span>
+            </div>
+            <span class="price">₹189</span>
+          </div>
+          <div class="special-item">
+            <div>
+              <strong>Butter Paneer Bowl</strong>
+              <span>Paneer gravy with fragrant basmati rice</span>
+            </div>
+            <span class="price">₹229</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="menu">
+      <div class="section-heading">
+        <div>
+          <h3>Menu highlights</h3>
+          <p>Popular dishes crafted with daily freshness and bold spices.</p>
+        </div>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-card">
+          <div class="menu-header">
+            <div>
+              <h4>Veg Thali</h4>
+            </div>
+            <div class="price">₹249</div>
+          </div>
+          <p>A balanced plate with roti, rice, dal, seasonal vegetables, and homemade pickle.</p>
+          <div class="menu-tags">
+            <span class="tag">Vegetarian</span>
+            <span class="tag">Daily special</span>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-header">
+            <div>
+              <h4>Masala Dosa</h4>
+            </div>
+            <div class="price">₹179</div>
+          </div>
+          <p>Golden crispy dosa paired with coconut chutney and tangy sambar.</p>
+          <div class="menu-tags">
+            <span class="tag">Crispy</span>
+            <span class="tag">Breakfast</span>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-header">
+            <div>
+              <h4>Paneer Butter Masala</h4>
+            </div>
+            <div class="price">₹229</div>
+          </div>
+          <p>Soft paneer cubes in creamy tomato gravy with fragrant basmati rice.</p>
+          <div class="menu-tags">
+            <span class="tag">Creamy</span>
+            <span class="tag">Top seller</span>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-header">
+            <div>
+              <h4>South Indian Meals</h4>
+            </div>
+            <div class="price">₹219</div>
+          </div>
+          <p>Comforting meal combo with rice, rasam, vegetable curry, papad, and curd.</p>
+          <div class="menu-tags">
+            <span class="tag">Meal</span>
+            <span class="tag">Family favorite</span>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-header">
+            <div>
+              <h4>Poha & Tea</h4>
+            </div>
+            <div class="price">₹99</div>
+          </div>
+          <p>Light and flavorful poha served with hot masala chai for a quick morning bite.</p>
+          <div class="menu-tags">
+            <span class="tag">Breakfast</span>
+            <span class="tag">Light</span>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-header">
+            <div>
+              <h4>Sweet Lassi</h4>
+            </div>
+            <div class="price">₹89</div>
+          </div>
+          <p>Cool, creamy lassi made fresh with yogurt and a hint of cardamom.</p>
+          <div class="menu-tags">
+            <span class="tag">Cold drink</span>
+            <span class="tag">Refreshing</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about-grid">
+      <article class="about-panel">
+        <div class="section-heading">
+          <div>
+            <h3>Why guests love us</h3>
+            <p>Quality ingredients and home-style hospitality.</p>
+          </div>
+        </div>
+        <ul>
+          <li>Fresh vegetables and spices prepared every morning.</li>
+          <li>Warm service and generous portions.</li>
+          <li>Easy takeaway and dine-in options.</li>
+        </ul>
+      </article>
+
+      <article class="about-panel" id="contact">
+        <div class="section-heading">
+          <div>
+            <h3>Visit the kitchen</h3>
+            <p>Come by for a hearty meal or a quick bite.</p>
+          </div>
+        </div>
+        <ul>
+          <li><strong>Address:</strong> 12 Market Lane, Downtown</li>
+          <li><strong>Phone:</strong> +91 98765 43210</li>
+          <li><strong>Email:</strong> hello@poojakitchen.com</li>
+          <li><strong>Pickup:</strong> Order ahead for faster service</li>
+        </ul>
+      </article>
+    </section>
+
+    <div class="footnote">
+      <div>
+        <strong>Daily specials and fresh cravings.</strong>
+        <div style="margin-top:4px; opacity:0.9;">Bring family, enjoy wholesome comfort food, and leave happy.</div>
+      </div>
+      <div class="mini-chip" style="background: rgba(255,255,255,0.18); color:#fff; border-color: rgba(255,255,255,0.24);">Made for hungry hearts</div>
+    </div>
+  </div>
+</body>
+</html>
