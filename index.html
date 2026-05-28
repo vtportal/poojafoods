@@ -155,26 +155,26 @@
       gap: 12px;
     }
 
-    .hero-image {
+    .hero-photo-frame {
+      overflow: hidden;
       border-radius: 26px;
-      min-height: 260px;
-      background:
-        linear-gradient(rgba(110,49,19,0.2), rgba(61,29,15,0.38)),
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560"><rect width="800" height="560" rx="30" fill="%23f1c1a0"/><circle cx="190" cy="176" r="56" fill="%23fff2e6"/><rect x="112" y="246" width="560" height="260" rx="24" fill="%23d4783f"/><rect x="142" y="282" width="220" height="150" rx="20" fill="%23fff7f1"/><rect x="388" y="282" width="220" height="150" rx="20" fill="%23ffe4cf"/><rect x="132" y="144" width="120" height="18" rx="9" fill="%23f4b58a"/><rect x="272" y="148" width="56" height="12" rx="6" fill="%23ffc7a7"/><rect x="154" y="100" width="88" height="12" rx="6" fill="%23fff0e6"/></svg>') center/cover;
-      position: relative;
+      border: 1px solid rgba(217,107,44,0.16);
+      background: white;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.35);
     }
 
-    .hero-image::after {
-      content: "Chef special of the day";
-      position: absolute;
-      left: 14px;
-      bottom: 14px;
-      background: rgba(63,33,20,0.72);
-      color: white;
+    .hero-photo-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .photo-caption {
+      color: var(--muted);
       font-size: 0.72rem;
-      padding: 8px 10px;
-      border-radius: 999px;
-      backdrop-filter: blur(6px);
+      line-height: 1.45;
+      margin-top: 4px;
     }
 
     .special-list {
@@ -358,28 +358,24 @@
       </div>
 
       <aside class="hero-card">
-        <div class="hero-image"></div>
+        <div class="hero-photo-frame">
+          <img src="26819565-6fec-4a61-9596-8884ced3c57f.JPG" alt="Pooja Foods menu image from the repository" />
+        </div>
+        <p class="photo-caption">This header image is taken from the JPG menu file in the repository and shown here as the menu reference.</p>
         <div class="special-list">
           <div class="special-item">
             <div>
-              <strong>Signature Thali</strong>
-              <span>Rice, curry, sabzi, pickle & sweet</span>
+              <strong>Menu photo reference</strong>
+              <span>Starter, main course, desserts, chutneys and pickup details</span>
             </div>
-            <span class="price">₹249</span>
+            <span class="price">From JPG</span>
           </div>
           <div class="special-item">
             <div>
-              <strong>Masala Dosa Plate</strong>
-              <span>Crispy dosa with chutney and sambar</span>
+              <strong>Fresh daily specials</strong>
+              <span>Classic Indian snacks and comfort food favorites</span>
             </div>
-            <span class="price">₹189</span>
-          </div>
-          <div class="special-item">
-            <div>
-              <strong>Butter Paneer Bowl</strong>
-              <span>Paneer gravy with fragrant basmati rice</span>
-            </div>
-            <span class="price">₹229</span>
+            <span class="price">Home-style</span>
           </div>
         </div>
       </aside>
@@ -395,87 +391,89 @@
 
       <div class="menu-grid">
         <article class="menu-card">
-          <div class="menu-header">
-            <div>
-              <h4>Veg Thali</h4>
-            </div>
-            <div class="price">₹249</div>
-          </div>
-          <p>A balanced plate with roti, rice, dal, seasonal vegetables, and homemade pickle.</p>
-          <div class="menu-tags">
-            <span class="tag">Vegetarian</span>
-            <span class="tag">Daily special</span>
-          </div>
+          <div class="menu-header"><div><h4>Pooja's special Samosa</h4></div><div class="price">₹25</div></div>
+          <p>Starter special from the JPG menu.</p>
+          <div class="menu-tags"><span class="tag">Starter</span><span class="tag">Popular</span></div>
         </article>
-
         <article class="menu-card">
-          <div class="menu-header">
-            <div>
-              <h4>Masala Dosa</h4>
-            </div>
-            <div class="price">₹179</div>
-          </div>
-          <p>Golden crispy dosa paired with coconut chutney and tangy sambar.</p>
-          <div class="menu-tags">
-            <span class="tag">Crispy</span>
-            <span class="tag">Breakfast</span>
-          </div>
+          <div class="menu-header"><div><h4>Litti / Kachori</h4></div><div class="price">₹20</div></div>
+          <p>Traditional stuffed snack listed on the menu image.</p>
+          <div class="menu-tags"><span class="tag">Snack</span><span class="tag">Crunchy</span></div>
         </article>
-
         <article class="menu-card">
-          <div class="menu-header">
-            <div>
-              <h4>Paneer Butter Masala</h4>
-            </div>
-            <div class="price">₹229</div>
-          </div>
-          <p>Soft paneer cubes in creamy tomato gravy with fragrant basmati rice.</p>
-          <div class="menu-tags">
-            <span class="tag">Creamy</span>
-            <span class="tag">Top seller</span>
-          </div>
+          <div class="menu-header"><div><h4>Bread Pakoda</h4></div><div class="price">₹20</div></div>
+          <p>Fried bread snack served as a comfort starter.</p>
+          <div class="menu-tags"><span class="tag">Starter</span><span class="tag">Hot</span></div>
         </article>
-
         <article class="menu-card">
-          <div class="menu-header">
-            <div>
-              <h4>South Indian Meals</h4>
-            </div>
-            <div class="price">₹219</div>
-          </div>
-          <p>Comforting meal combo with rice, rasam, vegetable curry, papad, and curd.</p>
-          <div class="menu-tags">
-            <span class="tag">Meal</span>
-            <span class="tag">Family favorite</span>
-          </div>
+          <div class="menu-header"><div><h4>Pakodas</h4></div><div class="price">₹50</div></div>
+          <p>Onion / gobhi / mixed pakodas from the menu image.</p>
+          <div class="menu-tags"><span class="tag">Fried</span><span class="tag">Tea-time</span></div>
         </article>
-
         <article class="menu-card">
-          <div class="menu-header">
-            <div>
-              <h4>Poha & Tea</h4>
-            </div>
-            <div class="price">₹99</div>
-          </div>
-          <p>Light and flavorful poha served with hot masala chai for a quick morning bite.</p>
-          <div class="menu-tags">
-            <span class="tag">Breakfast</span>
-            <span class="tag">Light</span>
-          </div>
+          <div class="menu-header"><div><h4>Dahi Wada</h4></div><div class="price">₹15</div></div>
+          <p>Soft lentil dumplings with yogurt and spice blend.</p>
+          <div class="menu-tags"><span class="tag">Chilled</span><span class="tag">Classic</span></div>
         </article>
-
         <article class="menu-card">
-          <div class="menu-header">
-            <div>
-              <h4>Sweet Lassi</h4>
-            </div>
-            <div class="price">₹89</div>
-          </div>
-          <p>Cool, creamy lassi made fresh with yogurt and a hint of cardamom.</p>
-          <div class="menu-tags">
-            <span class="tag">Cold drink</span>
-            <span class="tag">Refreshing</span>
-          </div>
+          <div class="menu-header"><div><h4>Chapati (4 pcs)</h4></div><div class="price">₹30</div></div>
+          <p>Fresh chapati served as part of the main course.</p>
+          <div class="menu-tags"><span class="tag">Main</span><span class="tag">Wheat</span></div>
+        </article>
+        <article class="menu-card">
+          <div class="menu-header"><div><h4>Poori (4 pcs)</h4></div><div class="price">₹30</div></div>
+          <p>Golden puffed bread for a hearty meal.</p>
+          <div class="menu-tags"><span class="tag">Main</span><span class="tag">Fluffy</span></div>
+        </article>
+        <article class="menu-card">
+          <div class="menu-header"><div><h4>Paneer Parantha</h4></div><div class="price">₹30</div></div>
+          <p>Stuffed parantha listed in the menu image.</p>
+          <div class="menu-tags"><span class="tag">Stuffed</span><span class="tag">Rich</span></div>
+        </article>
+        <article class="menu-card">
+          <div class="menu-header"><div><h4>Veg Meal</h4></div><div class="price">₹75</div></div>
+          <p>Vegetable of the house with chapati or rice.</p>
+          <div class="menu-tags"><span class="tag">Meal</span><span class="tag">Family</span></div>
+        </article>
+        <article class="menu-card">
+          <div class="menu-header"><div><h4>Chicken Curry</h4></div><div class="price">₹60</div></div>
+          <p>Chicken curry with chapati or rice from the menu photo.</p>
+          <div class="menu-tags"><span class="tag">Non-veg</span><span class="tag">Spicy</span></div>
+        </article>
+        <article class="menu-card">
+          <div class="menu-header"><div><h4>Chicken Meal</h4></div><div class="price">₹85</div></div>
+          <p>Chicken curry served with chapati and rice.</p>
+          <div class="menu-tags"><span class="tag">Meal</span><span class="tag">Hearty</span></div>
+        </article>
+        <article class="menu-card">
+          <div class="menu-header"><div><h4>Gulab Jamun</h4></div><div class="price">₹20</div></div>
+          <p>Sweet dessert from the JPG menu listing.</p>
+          <div class="menu-tags"><span class="tag">Dessert</span><span class="tag">Sweet</span></div>
+        </article>
+        <article class="menu-card">
+          <div class="menu-header"><div><h4>Kheer</h4></div><div class="price">₹30</div></div>
+          <p>Rice pudding offered in the dessert section.</p>
+          <div class="menu-tags"><span class="tag">Dessert</span><span class="tag">Creamy</span></div>
+        </article>
+        <article class="menu-card">
+          <div class="menu-header"><div><h4>Jalebi / Jalebi with Rabri</h4></div><div class="price">₹20–₹50</div></div>
+          <p>Sweet syrupy treats listed in the image.</p>
+          <div class="menu-tags"><span class="tag">Dessert</span><span class="tag">Festive</span></div>
+        </article>
+        <article class="menu-card">
+          <div class="menu-header"><div><h4>Malpua / Malpua with Rabri</h4></div><div class="price">₹20–₹50</div></div>
+          <p>Traditional sweet dish and rabri combo shown in the menu.</p>
+          <div class="menu-tags"><span class="tag">Sweet</span><span class="tag">Rich</span></div>
+        </article>
+        <article class="menu-card">
+          <div class="menu-header"><div><h4>Green Chutney</h4></div><div class="price">₹10</div></div>
+          <p>Fresh coriander chutney listed under extras.</p>
+          <div class="menu-tags"><span class="tag">Chutney</span><span class="tag">Fresh</span></div>
+        </article>
+        <article class="menu-card">
+          <div class="menu-header"><div><h4>Imli Chutney</h4></div><div class="price">₹10</div></div>
+          <p>Tangy tamarind chutney with a hint of sweetness.</p>
+          <div class="menu-tags"><span class="tag">Chutney</span><span class="tag">Tangy</span></div>
         </article>
       </div>
     </section>
