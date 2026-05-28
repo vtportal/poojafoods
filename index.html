@@ -318,9 +318,280 @@
       align-items: center;
     }
 
+    .cart-badge {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(180deg, #ffb378, #ef7f39);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      font-weight: bold;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+
+    .cart-badge:hover {
+      transform: scale(1.1);
+    }
+
+    .cart-badge-count {
+      font-size: 0.8rem;
+    }
+
+    .cart-badge-label {
+      font-size: 0.7rem;
+    }
+
+    .cart-sidebar {
+      position: fixed;
+      right: -400px;
+      top: 0;
+      width: 400px;
+      height: 100vh;
+      background: white;
+      box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+      z-index: 200;
+      transition: right 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .cart-sidebar.active {
+      right: 0;
+    }
+
+    .cart-header {
+      background: linear-gradient(180deg, #ffb378, #ef7f39);
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .cart-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-name {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .cart-item-price {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+
+    .cart-item-qty {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+
+    .qty-btn {
+      background: #d96b2c;
+      color: white;
+      border: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .cart-item-remove {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 5px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.75rem;
+    }
+
+    .cart-empty {
+      text-align: center;
+      color: #6d5045;
+      padding: 40px 20px;
+    }
+
+    .cart-footer {
+      padding: 20px;
+      border-top: 1px solid #ddd;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: linear-gradient(180deg, #ffb378, #ef7f39);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .checkout-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 300;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: var(--shadow);
+    }
+
+    .modal-header {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: var(--accent-dark);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: var(--text);
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .order-summary {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .summary-total {
+      border-top: 2px solid #ddd;
+      padding-top: 10px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .modal-buttons button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .btn-cancel {
+      background: #ccc;
+      color: #333;
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: white;
+    }
+
     @media (max-width: 900px) {
       .hero, .about-grid, .menu-grid {
         grid-template-columns: 1fr;
+      }
+      
+      .cart-sidebar {
+        width: 100%;
+        right: -100%;
       }
     }
   </style>
@@ -621,7 +892,7 @@
         </div>
         <ul>
           <li><strong>Address:</strong> Södra Kungsgatan 44, Gävle</li>
-          <li><strong>Phone:</strong> +46 760814034</li>
+          <li><strong>Phone:</strong> +46 761283480</li>
           <li><strong>Email:</strong> info@poojafoods.se</li>
           <li><strong>Pickup:</strong> Pick up available every day, order via WhatsApp</li>
         </ul>
@@ -636,5 +907,245 @@
       <div class="mini-chip" style="background: rgba(255,255,255,0.18); color:#fff; border-color: rgba(255,255,255,0.24);">Made for hungry hearts</div>
     </div>
   </div>
+
+  <!-- Cart Badge -->
+  <div class="cart-badge" id="cartBadge" onclick="toggleCart()">
+    <div class="cart-badge-label">🛒</div>
+    <div class="cart-badge-count" id="cartCount">0</div>
+  </div>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <span>Your Cart</span>
+      <button class="cart-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">Your cart is empty</div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">SEK 0</span>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn" onclick="openCheckout()">Place Order</button>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div class="modal" id="checkoutModal">
+    <div class="modal-content">
+      <div class="modal-header">Complete Your Order</div>
+      
+      <div class="order-summary" id="orderSummary"></div>
+
+      <form id="checkoutForm">
+        <div class="form-group">
+          <label for="customerName">Full Name *</label>
+          <input type="text" id="customerName" name="name" required placeholder="Your name">
+        </div>
+
+        <div class="form-group">
+          <label for="customerPhone">Phone Number *</label>
+          <input type="tel" id="customerPhone" name="phone" required placeholder="+46 7XXXXXXXX">
+        </div>
+
+        <div class="form-group">
+          <label for="customerAddress">Delivery Address</label>
+          <textarea id="customerAddress" name="address" placeholder="Street address, apartment/suite number"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="specialNotes">Special Instructions</label>
+          <textarea id="specialNotes" name="notes" placeholder="Any allergies, preferences, or special requests"></textarea>
+        </div>
+      </form>
+
+      <div class="modal-buttons">
+        <button class="btn-cancel" onclick="closeCheckout()">Cancel</button>
+        <button class="btn-whatsapp" onclick="sendViaWhatsapp()">
+          📱 Send Order via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Cart management
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function updateCartUI() {
+      const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.getElementById('cartCount').textContent = cartCount;
+
+      const cartItemsContainer = document.getElementById('cartItems');
+      
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<div class="cart-empty">Your cart is empty</div>';
+        document.getElementById('checkoutBtn').disabled = true;
+      } else {
+        cartItemsContainer.innerHTML = cart.map((item, index) => `
+          <div class="cart-item">
+            <div class="cart-item-info">
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-price">SEK ${item.price}</div>
+            </div>
+            <div class="cart-item-qty">
+              <button class="qty-btn" onclick="updateQty(${index}, -1)">−</button>
+              <span>${item.quantity}</span>
+              <button class="qty-btn" onclick="updateQty(${index}, 1)">+</button>
+            </div>
+            <button class="cart-item-remove" onclick="removeFromCart(${index})">Remove</button>
+          </div>
+        `).join('');
+        document.getElementById('checkoutBtn').disabled = false;
+      }
+
+      updateTotal();
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function updateTotal() {
+      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      document.getElementById('cartTotal').textContent = `SEK ${total}`;
+    }
+
+    function addToCart(name, price) {
+      const existingItem = cart.find(item => item.name === name);
+      
+      if (existingItem) {
+        existingItem.quantity++;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+      
+      updateCartUI();
+      // Show brief feedback
+      alert(name + ' added to cart!');
+    }
+
+    function updateQty(index, change) {
+      cart[index].quantity += change;
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function toggleCart() {
+      document.getElementById('cartSidebar').classList.toggle('active');
+    }
+
+    // Checkout functions
+    function openCheckout() {
+      if (cart.length === 0) return;
+      
+      // Build order summary
+      const summaryHTML = cart.map(item => `
+        <div class="summary-item">
+          <span>${item.name} × ${item.quantity}</span>
+          <span>SEK ${item.price * item.quantity}</span>
+        </div>
+      `).join('');
+      
+      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      document.getElementById('orderSummary').innerHTML = summaryHTML + `
+        <div class="summary-total">
+          <div style="display: flex; justify-content: space-between;">
+            <span>Total:</span>
+            <span>SEK ${total}</span>
+          </div>
+        </div>
+      `;
+      
+      document.getElementById('checkoutModal').classList.add('active');
+      document.getElementById('cartSidebar').classList.remove('active');
+    }
+
+    function closeCheckout() {
+      document.getElementById('checkoutModal').classList.remove('active');
+    }
+
+    function sendViaWhatsapp() {
+      const name = document.getElementById('customerName').value.trim();
+      const phone = document.getElementById('customerPhone').value.trim();
+      const address = document.getElementById('customerAddress').value.trim();
+      const notes = document.getElementById('specialNotes').value.trim();
+
+      if (!name || !phone) {
+        alert('Please enter your name and phone number');
+        return;
+      }
+
+      // Format order message
+      let message = `*Order from Pooja Foods Kitchen*\n\n`;
+      message += `*Customer Details:*\n`;
+      message += `Name: ${name}\n`;
+      message += `Phone: ${phone}\n`;
+      
+      if (address) {
+        message += `Address: ${address}\n`;
+      }
+      message += `\n*Order Items:*\n`;
+
+      cart.forEach(item => {
+        message += `• ${item.name} × ${item.quantity} = SEK ${item.price * item.quantity}\n`;
+      });
+
+      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      message += `\n*Total: SEK ${total}*\n`;
+
+      if (notes) {
+        message += `\nSpecial Instructions: ${notes}\n`;
+      }
+
+      message += `\nPlease confirm the order and provide payment details.`;
+
+      // Create WhatsApp link
+      const whatsappPhone = '+46761283480'; // From the contact section
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/${whatsappPhone}?text=${encodedMessage}`;
+
+      // Clear cart and close modal
+      cart = [];
+      updateCartUI();
+      closeCheckout();
+      
+      // Show confirmation and open WhatsApp
+      alert('Order prepared! Opening WhatsApp to send your order...');
+      window.open(whatsappURL, '_blank');
+    }
+
+    // Attach add to cart functionality to all buttons
+    document.addEventListener('DOMContentLoaded', function() {
+      const buttons = document.querySelectorAll('button:not(.qty-btn):not(.cart-close):not(.checkout-btn):not(.btn-cancel):not(.btn-whatsapp)');
+      buttons.forEach(button => {
+        if (button.textContent.includes('Add')) {
+          button.addEventListener('click', function(e) {
+            const card = button.closest('.menu-card');
+            const name = card.querySelector('div:nth-child(2)').textContent;
+            const priceText = card.textContent.match(/SEK\s+(\d+(?:–\d+)?)/)[1];
+            const price = parseInt(priceText.split('–')[0]);
+            
+            addToCart(name, price);
+          });
+        }
+      });
+
+      updateCartUI();
+    });
+
+    // Close modal when clicking outside
+    document.getElementById('checkoutModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeCheckout();
+      }
+    });
+  </script>
 </body>
 </html>
